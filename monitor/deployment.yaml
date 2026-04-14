@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fleet-monitor
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fleet-monitor
+  namespace: fleet-monitor
+  labels:
+    app: fleet-monitor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fleet-monitor
+  template:
+    metadata:
+      labels:
+        app: fleet-monitor
+    spec:
+      containers:
+        - name: monitor
+          image: ${ACR_SERVER}/fleet-monitor:v6
+          ports:
+            - containerPort: 8090
+          env:
+            - name: CLUSTER_DEV_URL
+              value: "${CLUSTER_DEV_URL}"
+            - name: CLUSTER_DEV_ENV
+              value: "dev"
+            - name: CLUSTER_STAGING_URL
+              value: "${CLUSTER_STAGING_URL}"
+            - name: CLUSTER_STAGING_ENV
+              value: "staging"
+            - name: CLUSTER_PROD_URL
+              value: "${CLUSTER_PROD_URL}"
+            - name: CLUSTER_PROD_ENV
+              value: "prod"
+            - name: CHECK_INTERVAL
+              value: "5"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 8090
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 8090
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleet-monitor
+  namespace: fleet-monitor
+spec:
+  type: LoadBalancer
+  selector:
+    app: fleet-monitor
+  ports:
+    - port: 80
+      targetPort: 8090
+      protocol: TCP

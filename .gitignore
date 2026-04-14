@@ -1,0 +1,11 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+tfplan
+*.tfstate
+*.tfstate.backup
+
+# Secrets — never commit real values
+terraform.tfvars
+*.auto.tfvars
+backend.hcl

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleet-dashboard
+  namespace: fleet-demo
+  labels:
+    app: fleet-dashboard
+spec:
+  type: LoadBalancer
+  selector:
+    app: fleet-dashboard
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP

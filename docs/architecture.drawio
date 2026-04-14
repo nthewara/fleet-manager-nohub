@@ -1,0 +1,121 @@
+<mxfile>
+  <diagram name="Fleet Manager Demo Architecture">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="AKS Fleet Manager — Demo Architecture" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#58A6FF;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="500" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="hub-box" value="" style="rounded=1;dashed=1;dashPattern=8 8;strokeColor=#BC8CFF;fillColor=#1a1a2e;strokeWidth=2;opacity=90;verticalAlign=top;container=1;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="80" width="240" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="hub-label" value="Fleet Hub Cluster" style="text;html=1;fontSize=11;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#BC8CFF;" vertex="1" parent="hub-box">
+          <mxGeometry x="40" y="5" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="hub-icon" value="Fleet Manager" style="shape=mxgraph.azure2.compute.kubernetes_services;fillColor=#0078D4;fontColor=#FFFFFF;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="hub-box">
+          <mxGeometry x="70" y="35" width="100" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-box" value="" style="rounded=1;dashed=1;dashPattern=5 5;strokeColor=#58A6FF;fillColor=#0d1117;strokeWidth=2;verticalAlign=top;container=1;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="300" width="260" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-label" value="Dev Cluster (K8s 1.33)" style="text;html=1;fontSize=11;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#58A6FF;" vertex="1" parent="dev-box">
+          <mxGeometry x="20" y="5" width="220" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-aks" value="AKS Dev&#xa;D4s_v3 x 1" style="shape=mxgraph.azure2.compute.kubernetes_services;fillColor=#58A6FF;fontColor=#FFFFFF;fontSize=10;whiteSpace=wrap;" vertex="1" parent="dev-box">
+          <mxGeometry x="30" y="40" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-app" value="Fleet&#xa;Dashboard" style="rounded=1;fillColor=#1f6feb;fontColor=#FFFFFF;fontSize=10;whiteSpace=wrap;strokeColor=#58A6FF;" vertex="1" parent="dev-box">
+          <mxGeometry x="140" y="40" width="90" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="dev-group" value="Update Group: dev | Stage 1 (60s wait)" style="text;html=1;fontSize=9;align=center;fillColor=#161b22;strokeColor=#30363d;fontColor=#58A6FF;rounded=1;" vertex="1" parent="dev-box">
+          <mxGeometry x="20" y="120" width="220" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="stg-box" value="" style="rounded=1;dashed=1;dashPattern=5 5;strokeColor=#D29922;fillColor=#0d1117;strokeWidth=2;verticalAlign=top;container=1;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="490" y="300" width="260" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="stg-label" value="Staging Cluster (K8s 1.33)" style="text;html=1;fontSize=11;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#D29922;" vertex="1" parent="stg-box">
+          <mxGeometry x="10" y="5" width="240" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="stg-aks" value="AKS Staging&#xa;D4s_v3 x 1" style="shape=mxgraph.azure2.compute.kubernetes_services;fillColor=#D29922;fontColor=#000000;fontSize=10;whiteSpace=wrap;" vertex="1" parent="stg-box">
+          <mxGeometry x="30" y="40" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="stg-app" value="Fleet&#xa;Dashboard" style="rounded=1;fillColor=#9a6700;fontColor=#FFFFFF;fontSize=10;whiteSpace=wrap;strokeColor=#D29922;" vertex="1" parent="stg-box">
+          <mxGeometry x="140" y="40" width="90" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="stg-group" value="Update Group: staging | Stage 2 (120s wait)" style="text;html=1;fontSize=9;align=center;fillColor=#161b22;strokeColor=#30363d;fontColor=#D29922;rounded=1;" vertex="1" parent="stg-box">
+          <mxGeometry x="10" y="120" width="240" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod-box" value="" style="rounded=1;dashed=1;dashPattern=5 5;strokeColor=#F85149;fillColor=#0d1117;strokeWidth=2;verticalAlign=top;container=1;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="900" y="300" width="260" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod-label" value="Production Cluster (K8s 1.33)" style="text;html=1;fontSize=11;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#F85149;" vertex="1" parent="prod-box">
+          <mxGeometry x="5" y="5" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod-aks" value="AKS Prod&#xa;D4s_v3 x 2" style="shape=mxgraph.azure2.compute.kubernetes_services;fillColor=#F85149;fontColor=#FFFFFF;fontSize=10;whiteSpace=wrap;" vertex="1" parent="prod-box">
+          <mxGeometry x="30" y="40" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod-app" value="Fleet&#xa;Dashboard" style="rounded=1;fillColor=#a40e26;fontColor=#FFFFFF;fontSize=10;whiteSpace=wrap;strokeColor=#F85149;" vertex="1" parent="prod-box">
+          <mxGeometry x="140" y="40" width="90" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="prod-group" value="Update Group: prod | Stage 3 (final)" style="text;html=1;fontSize=9;align=center;fillColor=#161b22;strokeColor=#30363d;fontColor=#F85149;rounded=1;" vertex="1" parent="prod-box">
+          <mxGeometry x="20" y="120" width="220" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="mon-box" value="" style="rounded=1;dashed=1;dashPattern=5 5;strokeColor=#3FB950;fillColor=#0d1117;strokeWidth=2;verticalAlign=top;container=1;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="490" y="620" width="260" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="mon-label" value="Monitor Cluster (standalone)" style="text;html=1;fontSize=11;fontStyle=1;align=center;fillColor=none;strokeColor=none;fontColor=#3FB950;" vertex="1" parent="mon-box">
+          <mxGeometry x="10" y="5" width="240" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="mon-aks" value="AKS Monitor&#xa;D2s_v3 x 1" style="shape=mxgraph.azure2.compute.kubernetes_services;fillColor=#3FB950;fontColor=#000000;fontSize=10;whiteSpace=wrap;" vertex="1" parent="mon-box">
+          <mxGeometry x="30" y="35" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="mon-app" value="Fleet&#xa;Monitor" style="rounded=1;fillColor=#238636;fontColor=#FFFFFF;fontSize=10;whiteSpace=wrap;strokeColor=#3FB950;" vertex="1" parent="mon-box">
+          <mxGeometry x="140" y="35" width="90" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="mon-note" value="NOT managed by Fleet - monitors uptime during upgrades" style="text;html=1;fontSize=8;align=center;fillColor=none;strokeColor=none;fontColor=#8B949E;fontStyle=2;" vertex="1" parent="mon-box">
+          <mxGeometry x="10" y="110" width="240" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="hub-dev" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#58A6FF;strokeWidth=2;" edge="1" source="hub-box" target="dev-box" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="hub-stg" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D29922;strokeWidth=2;" edge="1" source="hub-box" target="stg-box" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="hub-prod" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#F85149;strokeWidth=2;" edge="1" source="hub-box" target="prod-box" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="mon-dev" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#3FB950;strokeWidth=1;dashed=1;dashPattern=5 5;" edge="1" source="mon-box" target="dev-box" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="mon-stg" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#3FB950;strokeWidth=1;dashed=1;dashPattern=5 5;" edge="1" source="mon-box" target="stg-box" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="mon-prod" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#3FB950;strokeWidth=1;dashed=1;dashPattern=5 5;" edge="1" source="mon-box" target="prod-box" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-box" value="" style="rounded=1;fillColor=#161b22;strokeColor=#30363d;verticalAlign=top;container=1;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="80" width="260" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-title" value="Legend" style="text;html=1;fontSize=12;fontStyle=1;align=left;fillColor=none;strokeColor=none;fontColor=#C9D1D9;" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="5" width="100" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1" value="── Fleet management (solid)" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;fontColor=#BC8CFF;" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="30" width="230" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg2" value="╌╌ Health monitoring (dashed)" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;fontColor=#3FB950;" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="55" width="230" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg3" value="Strategy: dev → 60s → stg → 120s → prod" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;fontColor=#C9D1D9;" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="85" width="240" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg4" value="Upgrade: K8s 1.33 → 1.34.4" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;fontColor=#D29922;" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="110" width="200" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg5" value="Region: Australia East" style="text;html=1;fontSize=10;align=left;fillColor=none;strokeColor=none;fontColor=#8B949E;" vertex="1" parent="legend-box">
+          <mxGeometry x="10" y="135" width="200" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
